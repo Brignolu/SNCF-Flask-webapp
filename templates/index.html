@@ -1,0 +1,29 @@
+<html>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+ <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+ <link rel="icon" type="image/png" href="{{ url_for('static', filename='icon.png') }}" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+ <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="{{ url_for('static', filename='autocomplete.js') }}"></script>
+
+   <body>
+     <div class="my-auto">
+     <div id="horloge" class="mx-auto" size="0.35"></div>
+      <form class = "form-horizontal col-sm-4 align-content-sm-center mx-auto" action = "http://localhost:5000/get_form" method = "POST">
+        <div class="form-group">
+         Départ <input type = "text" class="form-control" name = "trainfrom" id="stationsfrom" />
+         Arrivée <input type = "text" class="form-control" name = "trainto" id="stationsto" />
+         Heure de départ <input type = "text" class="form-control" name = "traindatetime" id="datepicker" />
+         Monnaie <input type = "text" class="form-control" name = "traincurrency" />
+       </div>
+        <button type = "submit" class="btn btn-danger offset-sm-4">Trouver Les Trains</button>
+      </form>
+    </div>
+   </body>
+
+   <script src="{{ url_for('static', filename='horloge.js') }}">
+
+   </script>
+</html>

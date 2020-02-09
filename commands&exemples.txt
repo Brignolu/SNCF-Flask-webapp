@@ -1,0 +1,31 @@
+Modules Python requis:
+
+ladon (SOAP service), zeep (SOAP client), flask, flask_restplus (rest service)
+
+API utilisées:
+
+API SNCF + API Foreign exchange rates
+
+
+-------------------------------------------------------------
+Exemples Latitudes/Longitudes:
+
+48.8566969
+45.760585
+2.3514616
+4.859435
+-------------------------------------------------------------
+
+
+
+
+Commandes:
+-------------------------------------------------------------
+Lancer le SOAP Server :
+
+ladon-3.7-ctl testserve SoapDistanceService.py -p 8080
+-------------------------------------------------------------
+Lancer l'application Flask :
+
+py train.py
+-------------------------------------------------------------
