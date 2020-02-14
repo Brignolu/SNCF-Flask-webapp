@@ -3,6 +3,7 @@ import math
 
 
 class Distance(object):
+    #On précise les types d'entrée et de sortie
     @ladonize(float, float, float, float, rtype=float)
     def calcul_distance(self, latA, latB, longA, longB):
         latA = math.radians(latA)

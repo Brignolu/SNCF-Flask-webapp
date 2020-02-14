@@ -3,7 +3,20 @@
   <body>
     <p>
       Distance du trajet {{la_distance}} km <br/>
-      Cout du Trajet {{le_cout}} {{la_monnaie}}
+      Cout du Trajet {{le_cout}} {{la_monnaie}} <br/>
+      Temps de trajet : {{la_duree_totale}}<br/>
+      Trajet :
+      {% for etapes in trajet %}
+      {{etapes}}
+      {% endfor %}<br/>
+      Trains:
+      {% for reftrain in reftrains %}
+      {{reftrain}}
+      {% endfor %}<br/>
+      Durées :
+      {% for duree_train in duree_trains %}
+      {{duree_train}}
+      {% endfor %}<br/>
     </p>
   </body>
   </html>
