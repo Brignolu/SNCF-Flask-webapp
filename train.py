@@ -89,8 +89,7 @@ def request_json(tfrom="admin:fr:75056", tto="admin:fr:69123", tdatetime="202002
     route =[]
     trains = []
     durations = []
-    arrivals = []
-    departures = []
+    arrivals_departures_times = []
     for i in range(0,len(data['journeys'][0]['sections'])):
         if (data['journeys'][0]['sections'][i]['type'] != 'crow_fly') and (data['journeys'][0]['sections'][i]['type'] != 'waiting') and (data['journeys'][0]['sections'][i]['type'] != 'transfer') :
             
@@ -109,8 +108,8 @@ def request_json(tfrom="admin:fr:75056", tto="admin:fr:69123", tdatetime="202002
             durations.append(dur)
             printer(data['journeys'][0]['sections'][i]['base_departure_date_time'][9:])
             # TODO stocker les arrival_date_time et base_departure_datetime en les convertissant de YYYYTHHmmss vers une string de type HH:mm
-            departures.append(pdatetimetostr(data,i,'departure_date_time'))
-            arrivals.append(pdatetimetostr(data,i,'arrival_date_time'))
+            arrivals_departures_times.append(pdatetimetostr(data,i,'departure_date_time'))
+            arrivals_departures_times.append(pdatetimetostr(data,i,'arrival_date_time'))
         elif data['journeys'][0]['sections'][i]['type'] == 'waiting':
             
             """
@@ -148,7 +147,7 @@ def request_json(tfrom="admin:fr:75056", tto="admin:fr:69123", tdatetime="202002
     return reponse
     """
     
-    return render_template('result.html', la_distance = distance, le_cout = totalprice, la_monnaie = tcurrency,la_duree_totale = totalduration, trajet = route, reftrains = trains,duree_trains = durations)
+    return render_template('result.html', la_distance = distance, le_cout = totalprice, la_monnaie = tcurrency,la_duree_totale = totalduration, trajet = route, reftrains = trains,duree_trains = durations,heures_depart_arrivee = arrivals_departures_times)
 
 
 if __name__ == '__main__':

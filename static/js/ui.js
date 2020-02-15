@@ -25,7 +25,6 @@ $( function() {
     $("#stationsfrom").val('');
   });
   $( "#reinit-to" ).click(function() {
-    alert($(this).parent().parent().$(".form-control").attr('class'));
     $("#stationsto").prop( "disabled", false );
     $("#stationsto").val('');
   });
