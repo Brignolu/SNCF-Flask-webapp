@@ -1,26 +1,90 @@
 <html>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-  <body>
-    <p>
-      Distance du trajet {{la_distance}} km <br/>
-      Cout du Trajet {{le_cout}} {{la_monnaie}} <br/>
-      Temps de trajet : {{la_duree_totale}}<br/>
-      Trajet :
-      {% for etapes in trajet %}
-      {{etapes}}
-      {% endfor %}<br/>
-      Trains:
-      {% for reftrain in reftrains %}
-      {{reftrain}}
-      {% endfor %}<br/>
-      Durées :
-      {% for duree_train in duree_trains %}
-      {{duree_train}}
-      {% endfor %}<br/>
-      Départs Arrivée :
-      {% for hdeparr in heures_depart_arrivee %}
-      {{hdeparr}}
-      {% endfor %}<br/>
-    </p>
+<link rel="icon" type="image/png" href="{{ url_for('static', filename='img/icon.png') }}" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<title>TrouveTonTrain</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<body>
+  <div class="container h-100">
+      <div class="row align-items-center h-100">
+    <div class="mx-auto">
+    <h1>Voici votre itinéraire</h1>
+  </div>
+  <div class="col-sm-12 mx-auto">
+    <ul class="list-group list-group-horizontal">
+      {% for dep,arr,tr,dur,hde,har  in trajet %}
+      {% if dep=='waiting' %}
+      <li class="list-group-item">
+        <table>
+          <tr>
+            <td>Attente </td>
+          </tr>
+          <tr>
+            <td> <img src="{{ url_for('static', filename='img/hourglass.png') }}"></td>
+          </tr>
+          <tr>
+            <td>{{dur}}</td>
+          </tr>
+        </table>
+        {% else %}
+        <li class="list-group-item">
+          <table>
+            <tr>
+              <td>{{hde}}</td>
+            </tr>
+            <tr>
+              <td>{{dep}}</td>
+            </tr>
+          </table>
+        </li>
+        <li class="list-group-item">
+          <table>
+            <tr>
+              <td> {{tr}} </td>
+            </tr>
+            <tr>
+              <td> <img src="{{ url_for('static', filename='img/right-arrow.png') }}"></td>
+            </tr>
+            <tr>
+              <td> {{dur}}</td>
+            </tr>
+          </table>
+        </li>
+        <li class="list-group-item">
+          <table>
+            <tr>
+              <td>{{har}}</td>
+            </tr>
+            <tr>
+              <td>{{arr}}</td>
+            </tr>
+          </table>
+        </li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="col-sm-3 mx-auto">
+      <a href="/" class="btn btn-info btn-block">Chercher un autre itinéraire</a>
+    </div>
+    <div class="col-sm-4 mx-auto">
+      <table class="table">
+        <tr>
+          <th>Distance totale</th>
+          <th>Prix</th>
+          <th>Temps total</th>
+        </tr>
+        <tr class="table-info">
+          <td>{{la_distance}} km</td>
+          <td>{{le_cout}} {{la_monnaie}}</td>
+          <td>{{la_duree_totale}}</td>
+        </tr>
+
+      </table>
+      </div>
+
+  </div>
+</div>
   </body>
   </html>

@@ -100,16 +100,11 @@ def request_json(tfrom="admin:fr:75056", tto="admin:fr:69123", tdatetime="202002
             printer(data['journeys'][0]['sections'][i]['display_informations']['headsign'])
             printer(data['journeys'][0]['sections'][i]['to']['name'])
             """
-            
-            route.append(data['journeys'][0]['sections'][i]['from']['name'])
-            trains.append(data['journeys'][0]['sections'][i]['display_informations']['commercial_mode'] + ' n°' + data['journeys'][0]['sections'][i]['display_informations']['headsign'])
-            route.append(data['journeys'][0]['sections'][i]['to']['name'])
+            train_str = data['journeys'][0]['sections'][i]['display_informations']['commercial_mode'] + ' n°' + data['journeys'][0]['sections'][i]['display_informations']['headsign']
             dur = str(time.strftime("%H:%M", time.gmtime(data['journeys'][0]['sections'][i]['duration']))) #On transforme la durée en secondes par une string en HH:mm
-            durations.append(dur)
-            printer(data['journeys'][0]['sections'][i]['base_departure_date_time'][9:])
-            # TODO stocker les arrival_date_time et base_departure_datetime en les convertissant de YYYYTHHmmss vers une string de type HH:mm
-            arrivals_departures_times.append(pdatetimetostr(data,i,'departure_date_time'))
-            arrivals_departures_times.append(pdatetimetostr(data,i,'arrival_date_time'))
+            #DEBUG
+            printer((data['journeys'][0]['sections'][i]['from']['name'], data['journeys'][0]['sections'][i]['to']['name'], train_str, dur, pdatetimetostr(data, i, 'departure_date_time'), pdatetimetostr(data, i, 'arrival_date_time')))
+            route.append((data['journeys'][0]['sections'][i]['from']['name'], data['journeys'][0]['sections'][i]['to']['name'], train_str, dur, pdatetimetostr(data, i, 'departure_date_time'), pdatetimetostr(data, i, 'arrival_date_time')))
         elif data['journeys'][0]['sections'][i]['type'] == 'waiting':
             
             """
@@ -117,8 +112,9 @@ def request_json(tfrom="admin:fr:75056", tto="admin:fr:69123", tdatetime="202002
             printer(data['journeys'][0]['sections'][i]['type'])
             """
             dur = str(time.strftime("%H:%M", time.gmtime(data['journeys'][0]['sections'][i]['duration']))) #On transforme la durée en secondes par une string en HH:mm
-            durations.append(dur)
-            route.append(data['journeys'][0]['sections'][i]['type'])
+            #DEBUG
+            printer((data['journeys'][0]['sections'][i]['type'], ' ' , ' ', dur, ' ', ' '))
+            route.append((data['journeys'][0]['sections'][i]['type'], ' ' , ' ', dur, ' ', ' '))
 
     # on instancie le client SOAP
     client = zeep.Client('http://localhost:8080/Distance/soap/description')

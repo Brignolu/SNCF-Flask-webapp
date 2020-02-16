@@ -10,6 +10,7 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="{{ url_for('static', filename='js/clockpicker.js') }}"></script>
 <script src="{{ url_for('static', filename='js/ui.js') }}"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>TrouveTonTrain</title>
 
 <body>
@@ -35,7 +36,7 @@
         Heure de départ <input type="text" class="clockpicker form-control" value="" data-placement="top" data-align="left" data-autoclose="true" name="traintime">
         Monnaie <input type = "text" class="form-control" name = "traincurrency" />
       </div>
-      <button type = "submit" class="btn btn-outline-success offset-sm-4">Trouver Les Trains</button>
+      <button type = "submit" class="btn btn-success btn-block">Trouver Les Trains</button>
     </form>
   </div>
 </body>

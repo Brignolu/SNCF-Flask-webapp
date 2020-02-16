@@ -9,8 +9,6 @@ ladon (SOAP Service), zeep (SOAP Client), flask, flask_restplus (REST Service)
 
 SNCF API + Foreign exchange rates API
 
-
-
 # Setup:
 
 ### Launch SOAP Server :
@@ -41,7 +39,7 @@ Here's the link to his profile : https://jsfiddle.net/user/HashtagCheminot/fiddl
 
 # Devlog
 
-### Liens
+### Requests
 
 - https://api.navitia.io/v1/coverage/sncf/pt_objects?q=lyon&
 
@@ -52,6 +50,7 @@ Here's the link to his profile : https://jsfiddle.net/user/HashtagCheminot/fiddl
 ## TODO :
 - [X] Bouton réinitialiser dans les inputs de l'index qui re-enable le champ et re-initialise la value du champ.
 - [X] Vue result basique
+- [X] Vue result Bootstrap
 - [ ] Vue result React
-- [ ] Rajouter la durée de chaque Trajet
+- [X] Rajouter la durée de chaque Trajet
 -  [ ] Deployer sur Heroku
