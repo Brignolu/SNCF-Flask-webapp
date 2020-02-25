@@ -5,30 +5,37 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 <title>TrouveTonTrain</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<body>
-  <div class="container h-100">
-      <div class="row align-items-center h-100">
+<body style="height:100% ">
+  <div class="row h-100 justify-content-center align-items-center ">
     <div class="mx-auto">
     <h1>Voici votre itinéraire</h1>
   </div>
   <div class="col-sm-12 mx-auto">
-    <ul class="list-group list-group-horizontal">
+    <ul class="list-group">
       {% for dep,arr,tr,dur,hde,har  in trajet %}
       {% if dep=='waiting' %}
       <li class="list-group-item">
+        <table>
+        <tr>
+          <td><img src="{{ url_for('static', filename='img/hourglass.png') }}"></td>
+          <td>
         <table>
           <tr>
             <td>Attente </td>
           </tr>
           <tr>
-            <td> <img src="{{ url_for('static', filename='img/hourglass.png') }}"></td>
-          </tr>
-          <tr>
             <td>{{dur}}</td>
           </tr>
         </table>
+      </td>
+    </tr>
+  </table>
         {% else %}
         <li class="list-group-item">
+          <table>
+          <tr>
+            <td><img src="{{ url_for('static', filename='img/trainstation.png') }}"></td>
+            <td>
           <table>
             <tr>
               <td>{{hde}}</td>
@@ -37,21 +44,32 @@
               <td>{{dep}}</td>
             </tr>
           </table>
+        </td>
+      </tr>
+    </table>
         </li>
         <li class="list-group-item">
+          <table>
+          <tr>
+            <td><img src="{{ url_for('static', filename='img/railway.png') }}"></td>
+            <td>
           <table>
             <tr>
               <td> {{tr}} </td>
             </tr>
             <tr>
-              <td> <img src="{{ url_for('static', filename='img/right-arrow.png') }}"></td>
-            </tr>
-            <tr>
               <td> {{dur}}</td>
             </tr>
           </table>
+        </td>
+      </tr>
+    </table>
         </li>
         <li class="list-group-item">
+          <table>
+          <tr>
+            <td><img src="{{ url_for('static', filename='img/trainstation.png') }}"></td>
+            <td>
           <table>
             <tr>
               <td>{{har}}</td>
@@ -60,13 +78,16 @@
               <td>{{arr}}</td>
             </tr>
           </table>
+        </td>
+      </tr>
+    </table>
         </li>
         {% endif %}
         {% endfor %}
       </ul>
     </div>
     <div class="col-sm-3 mx-auto">
-      <a href="/" class="btn btn-info btn-block">Chercher un autre itinéraire</a>
+      <a href="{{ url_for('index') }}" class="btn btn-info btn-block">Chercher un autre itinéraire</a>
     </div>
     <div class="col-sm-4 mx-auto">
       <table class="table">
@@ -85,6 +106,6 @@
       </div>
 
   </div>
-</div>
+
   </body>
   </html>

@@ -8,40 +8,50 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script src="{{ url_for('static', filename='js/clockpicker.js') }}"></script>
-<script src="{{ url_for('static', filename='js/ui.js') }}"></script>
+<script type="application/javascript" src="{{ url_for('static', filename='js/clockpicker.js') }}"></script>
+<script type="application/javascript" src="{{ url_for('static', filename='js/ui.js') }}"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>TrouveTonTrain</title>
 
 <body>
   <div class="wrapper">
     <div id="horloge" class="mx-auto" size="0.35"></div>
-    <form class = "form-horizontal col-sm-4 align-content-sm-center mx-auto" action = "http://localhost:5000/get_form" method = "POST">
+    <form class = "form-horizontal col-sm-4 align-content-sm-center mx-auto" action = "{{ url_for('get_form') }}" method = "POST" enctype="multipart/form-data">
       <div class="form-group">
         Départ
         <div class="input-group">
-          <input type = "text" class="form-control" name = "trainfrom" id="stationsfrom">
+          <input type = "text" class="form-control" name ="trainfrom" id="trainfrom">
           <div class="input-group-append">
             <button class="btn btn-outline-danger" type="button" id="reinit-from">X</button>
           </div>
         </div>
         Arrivée
         <div class="input-group">
-          <input type = "text" class="form-control" name = "trainto" id="stationsto"/>
+          <input type = "text" class="form-control" name ="trainto" id="trainto"/>
           <div class="input-group-append">
             <button class="btn btn-outline-danger" type="button" id="reinit-to">X</button>
           </div>
         </div>
-        Date de départ <input type = "date" class="form-control" name = "traindate" id="datepicker" />
+        Date de départ <input type = "date" class="form-control" name ="traindate" id="datepicker" />
         Heure de départ <input type="text" class="clockpicker form-control" value="" data-placement="top" data-align="left" data-autoclose="true" name="traintime">
-        Monnaie <input type = "text" class="form-control" name = "traincurrency" />
+        Monnaie  <select class="form-control" name="traincurrency">
+    <option>EUR</option>
+    <option>USD</option>
+    <option>PLN</option>
+    <option>CHF</option>
+    <option>GBP</option>
+    <option>JPY</option>
+    <option>AUD</option>
+  </select>
+     <input type="hidden" id="fromdata" name="fromdata" value="">
+     <input type="hidden" id="todata" name="todata" value="">
       </div>
-      <button type = "submit" class="btn btn-success btn-block">Trouver Les Trains</button>
+      <button type = "submit" class="btn btn-info btn-block">Trouver Les Trains</button>
     </form>
   </div>
 </body>
 
-<script src="{{ url_for('static', filename='js/horloge.js') }}">
+<script type="application/javascript" src="{{ url_for('static', filename='js/horloge.js') }}">
 
 </script>
 </html>

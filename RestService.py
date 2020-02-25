@@ -23,10 +23,8 @@ class Price(Resource):
         priceperkm = 0.3
         rates = data['rates']
         
-        """
         #DEBUG
         printer('data : ' + str(pprint.pformat(data)))
-        """
 
         #Si la monnaie fournie en entrée est l'euro  : on effectue pas de conversion puisque c'est la monnaie de base
         if currency == 'EUR':
