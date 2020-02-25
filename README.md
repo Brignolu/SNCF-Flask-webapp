@@ -1,6 +1,9 @@
 # SNCF-Flask-webapp :bullettrain_front:
 A flask web-app that interrogates the navitia api to retrieve journeys and calculate the distance of the route by interrogating a homemade SOAP Service. it also interrogates an homemade REST-API to convert currencies.
 
+![Index Capture](indexcapture.png)
+![Result Capture](resultcapture.png)
+
 ### [Demo](http://trouvetontrain.herokuapp.com)
 
 ##### You can find REST API Swagger documentation : [here](http://trouvetontrain.herokuapp.com/restservice)
