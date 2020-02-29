@@ -1,5 +1,5 @@
 # SNCF-Flask-webapp :bullettrain_front:
-A flask web-app that interrogates the navitia api to retrieve journeys and calculate the distance of the route by interrogating a homemade SOAP Service. it also interrogates an homemade REST-API to convert currencies.
+A flask web-app that interrogates the navitia REST-API to retrieve journeys. It calculates the distance of the route by interrogating a homemade SOAP Service. It also interrogates a homemade REST-API to convert currencies.
 
 ![Index Capture](indexcapture.png)
 ![Result Capture](resultcapture.png)
