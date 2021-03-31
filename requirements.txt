@@ -21,7 +21,7 @@ itsdangerous==1.1.0
 Jinja2==2.11.1
 jsonschema==3.2.0
 ladon==1.0.4
-lxml==4.5.0
+lxml==4.6.3
 MarkupSafe==1.1.1
 packaging==20.1
 Pygments==2.5.2
