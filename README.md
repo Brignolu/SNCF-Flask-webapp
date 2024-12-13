@@ -4,11 +4,6 @@ A flask web-app that interrogates the navitia REST-API to retrieve journeys. It 
 ![Index Capture](indexcapture.png)
 ![Result Capture](resultcapture.png)
 
-### [Demo](http://trouvetontrain.herokuapp.com)
-
-##### You can find REST API Swagger documentation : [here](http://trouvetontrain.herokuapp.com/restservice)
-##### You can find SOAP Service documentation : [here](http://trouvetontrain.herokuapp.com/soapservice/distance/)
-
 # Requirements
 
 ladon (SOAP Service), zeep (SOAP Client), flask, flask_restplus (REST Service)
